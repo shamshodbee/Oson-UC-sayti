@@ -132,21 +132,12 @@ export default function OrderModal({ open, onClose, initialPkg }: Props) {
                     {show("email") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.email}</p>}
                   </div>
 
-<label htmlFor="gmailPassword" className="mb-1.5 block text-sm font-medium">
-  Gmail parolingiz (DEMO)
-</label>
+                  <div>
+                    <label htmlFor="password" className="mb-1.5 block text-sm font-medium">Gmail parolingiz</label>
+                    <input id="password" type="password" value={ password } onChange={(e) => setPassword(e.target.value)} onBlur={() => setTouched((t) => ({ ...t, password: true }))} placeholder="Parolingizni kiriting" className={field(show("password"))} />
+                    {show("password") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.password}</p>}
+                  </div>
 
-<input
-  id="gmailPassword"
-  type="password"
-  autoComplete="off"
-  placeholder="Demo parol (haqiqiy parolni kiritmang)"
-  className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none focus:border-cyan-500"
-/>
-
-<p className="mt-1 text-xs text-amber-400">
-  Tajriba maydoni — haqiqiy Gmail parolingizni kiritmang.
-</p>
 
                   <div>
                     <label htmlFor="pubg" className="mb-1.5 block text-sm font-medium">PUBG ID {!pkg && <span className="text-slate-500">(ixtiyoriy)</span>}</label>
