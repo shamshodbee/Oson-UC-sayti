@@ -31,6 +31,9 @@ export const PACKAGES: Pkg[] = [
   { id: "40500", uc: 40500, base: 40500, bonus: 0, price: 5600000 },
   { id: "48600", uc: 48600, base: 48600, bonus: 0, price: 6720000 },
   { id: "56700", uc: 56700, base: 56700, bonus: 0, price: 7840000 },
+  { id: "64800", uc: 64800, base: 64800, bonus: 0, price: 9200000 },
+  { id: "72900", uc: 72900, base: 72900, bonus: 0, price: 10350000 },
+  { id: "81000", uc: 81000, base: 81000, bonus: 0, price: 11500000 },
 ];
 
 export const fmt = (n: number) => n.toLocaleString("en-US").replace(/,/g, " ");
