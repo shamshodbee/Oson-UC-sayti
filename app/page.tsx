@@ -1,14 +1,12 @@
 "use client";
 import { useCallback, useState } from "react";
-import { motion } from "framer-motion";
-import { Crown, Zap, ShieldCheck, Clock, PackageCheck, ChevronDown, MousePointerClick, KeyRound, Gift } from "lucide-react";
+import { Crown, ShieldCheck, Clock, PackageCheck, ChevronDown, MousePointerClick, KeyRound, Gift } from "lucide-react";
 import OrderModal from "@/components/OrderModal";
 import { FAQ, PACKAGES, Pkg, fmt } from "@/components/data";
 
 const Logo = () => (
   <a href="#" className="flex items-center gap-2">
     <span className="relative grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-gold to-ember text-obsidian">
-      <span className="absolute inset-0 rounded-lg bg-gold blur-md animate-glow" />
       <Crown size={20} className="relative" />
     </span>
     <span className="font-display text-xl font-bold tracking-wide text-white">OSON <span className="text-gold">UC</span></span>
@@ -29,10 +27,10 @@ export default function Home() {
           <Logo />
           <div className="hidden gap-8 text-sm font-medium text-slate-300 md:flex">
             {[["#paketlar", "UC Paketlar"], ["#qanday", "Qanday ishlaydi?"], ["#savollar", "Savollar"]].map(([h, t]) => (
-              <a key={h} href={h} className="transition hover:text-neon">{t}</a>
+              <a key={h} href={h} className="hover:text-neon">{t}</a>
             ))}
           </div>
-          <button onClick={() => openModal()} className="rounded-lg bg-gradient-to-r from-gold to-ember px-3.5 py-2 text-xs font-bold text-obsidian transition hover:brightness-110 sm:text-sm">
+          <button onClick={() => openModal()} className="rounded-lg bg-gradient-to-r from-gold to-ember px-3.5 py-2 text-xs font-bold text-obsidian hover:brightness-110 sm:text-sm">
             Ro'yxatdan o'tish / Kirish
           </button>
         </nav>
@@ -43,16 +41,15 @@ export default function Home() {
           <div className="grid-bg absolute inset-0 opacity-40" />
           <div className="absolute left-1/2 top-0 h-72 w-[40rem] -translate-x-1/2 rounded-full bg-ember/20 blur-[120px]" />
           <div className="relative mx-auto max-w-4xl px-4 pb-14 pt-16 text-center sm:pt-24">
-            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="font-display text-4xl font-bold leading-[1.05] text-white sm:text-6xl">
+            <h1 className="font-display text-4xl font-bold leading-[1.05] text-white sm:text-6xl">
               PUBG Mobile UC — <span className="bg-gradient-to-r from-gold to-ember bg-clip-text text-transparent">Tezkor, Ishonchli va Arzon!</span>
-            </motion.h1>
+            </h1>
             <p className="mx-auto mt-5 max-w-xl text-base text-slate-400 sm:text-lg">
               Rasmiy ID orqali 1-5 daqiqada hisobingizga tushadi. 24/7 avtomatik xizmat.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <a href="#paketlar" className="rounded-xl bg-gradient-to-r from-gold to-ember px-7 py-3.5 font-bold text-obsidian shadow-lg shadow-ember/25 transition hover:brightness-110">UC sotib olish</a>
-              <button onClick={() => openModal()} className="rounded-xl border border-line bg-slate2 px-7 py-3.5 font-semibold text-white transition hover:border-neon hover:text-neon">Ro'yxatdan o'tish</button>
+              <a href="#paketlar" className="rounded-xl bg-gradient-to-r from-gold to-ember px-7 py-3.5 font-bold text-obsidian shadow-lg shadow-ember/25 hover:brightness-110">UC sotib olish</a>
+              <button onClick={() => openModal()} className="rounded-xl border border-line bg-slate2 px-7 py-3.5 font-semibold text-white hover:border-neon hover:text-neon">Ro'yxatdan o'tish</button>
             </div>
             <div className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-3">
               {[[PackageCheck, "10,000+", "Muvaffaqiyatli buyurtma"], [Clock, "1-5 daqiqa", "Yetkazib berish"], [ShieldCheck, "100%", "Xavfsiz kafolat"]].map(([I, n, l]: any) => (
@@ -70,13 +67,13 @@ export default function Home() {
           <p className="mt-2 text-slate-400">O'zingizga mos paketni tanlang — bonuslar narxga kiritilgan.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {PACKAGES.map((p) => (
-              <div key={p.id} className="group relative flex flex-col rounded-2xl border border-line bg-slate2 p-5 transition hover:-translate-y-1 hover:border-neon/60 hover:shadow-[0_0_30px_-8px_rgba(34,211,238,.4)]">
+              <div key={p.id} className="relative flex flex-col rounded-2xl border border-line bg-slate2 p-5 hover:border-neon/60 hover:shadow-[0_0_30px_-8px_rgba(34,211,238,.4)]">
                 {p.badge && <span className="absolute right-4 top-4 rounded-full bg-gold px-2.5 py-0.5 text-xs font-bold text-obsidian">{p.badge}</span>}
                 <span className="grid h-14 w-14 place-items-center rounded-xl bg-gradient-to-br from-gold to-ember text-obsidian shadow-lg shadow-ember/30"><Crown size={28} /></span>
                 <div className="mt-4 font-display text-4xl font-bold text-white">{fmt(p.uc)} <span className="text-gold">UC</span></div>
                 <div className="mt-1 h-5 text-sm text-slate-400">{p.bonus ? <>{fmt(p.base)} + <span className="text-neon">{fmt(p.bonus)} Bonus</span></> : "Boshlang'ich paket"}</div>
                 <div className="mb-5 mt-4 text-xl font-bold text-gold">{fmt(p.price)} so'm</div>
-                <button onClick={() => openModal(p)} className="mt-auto rounded-xl border border-gold/50 py-2.5 font-bold text-gold transition hover:bg-gradient-to-r hover:from-gold hover:to-ember hover:text-obsidian">Tanlash</button>
+                <button onClick={() => openModal(p)} className="mt-auto rounded-xl border border-gold/50 py-2.5 font-bold text-gold hover:bg-gradient-to-r hover:from-gold hover:to-ember hover:text-obsidian">Tanlash</button>
               </div>
             ))}
           </div>
@@ -107,11 +104,9 @@ export default function Home() {
               <div key={f.q} className="overflow-hidden rounded-2xl border border-line bg-slate2">
                 <button onClick={() => setFaq(faq === i ? null : i)} aria-expanded={faq === i} className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-white">
                   {f.q}
-                  <ChevronDown className={`shrink-0 text-gold transition-transform ${faq === i ? "rotate-180" : ""}`} size={20} />
+                  <ChevronDown className={`shrink-0 text-gold ${faq === i ? "rotate-180" : ""}`} size={20} />
                 </button>
-                <motion.div initial={false} animate={{ height: faq === i ? "auto" : 0 }} className="overflow-hidden">
-                  <p className="px-5 pb-5 text-sm text-slate-400">{f.a}</p>
-                </motion.div>
+                {faq === i && <p className="px-5 pb-5 text-sm text-slate-400">{f.a}</p>}
               </div>
             ))}
           </div>

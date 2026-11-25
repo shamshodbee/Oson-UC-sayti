@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
 body { background: #090B10; color: #E5E7EB; }
 ::selection { background: #F59E0B; color: #090B10; }
 .glass { background: rgba(18,22,34,.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
@@ -12,4 +11,3 @@ body { background: #090B10; color: #E5E7EB; }
   mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 70%);
 }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
