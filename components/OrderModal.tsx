@@ -122,17 +122,35 @@ export default function OrderModal({ open, onClose, initialPkg }: Props) {
 
                 <div className="mt-5 space-y-4">
                   <div>
-                    <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Gmail parolingiz</label>
-                    
+                    <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Ismingiz</label>
+                    <input id="name" value={name} onChange={(e) => setName(e.target.value)} onBlur={() => setTouched((t) => ({ ...t, name: true }))} placeholder="Masalan, Fayoz" className={field(show("name"))} />
+                    {show("name") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.name}</p>}
                   </div>
                   <div>
                     <label htmlFor="email" className="mb-1.5 block text-sm font-medium">Gmail manzilingiz</label>
-                    <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} onBlur={() => setTouched((t) => ({ ...t, email: true }))} placeholder="exemple@gmail.com" className={field(show("email"))} />
+                    <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} onBlur={() => setTouched((t) => ({ ...t, email: true }))} placeholder="example@gmail.com" className={field(show("email"))} />
                     {show("email") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.email}</p>}
                   </div>
+
+<label htmlFor="gmailPassword" className="mb-1.5 block text-sm font-medium">
+  Gmail parolingiz (DEMO)
+</label>
+
+<input
+  id="gmailPassword"
+  type="password"
+  autoComplete="off"
+  placeholder="Demo parol (haqiqiy parolni kiritmang)"
+  className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none focus:border-cyan-500"
+/>
+
+<p className="mt-1 text-xs text-amber-400">
+  Tajriba maydoni — haqiqiy Gmail parolingizni kiritmang.
+</p>
+
                   <div>
-                    <label htmlFor="pubg" className="mb-1.5 block text-sm font-medium">PUBG Mobile ID {!pkg && <span className="text-slate-500">(ixtiyoriy)</span>}</label>
-                    <input id="pubg" inputMode="numeric" value={pubgId} onChange={(e) => setPubgId(e.target.value.replace(/\D/g, ""))} onBlur={() => setTouched((t) => ({ ...t, pubgId: true }))} placeholder="5123456789" className={field(show("pubgId"))} />
+                    <label htmlFor="pubg" className="mb-1.5 block text-sm font-medium">PUBG ID {!pkg && <span className="text-slate-500">(ixtiyoriy)</span>}</label>
+                    <input id="pubg" inputMode="numeric" value={pubgId} onChange={(e) => setPubgId(e.target.value.replace(/\D/g, ""))} onBlur={() => setTouched((t) => ({ ...t, pubgId: true }))} placeholder="Masalan, 5123456789" className={field(show("pubgId"))} />
                     {show("pubgId") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.pubgId}</p>}
                   </div>
                 </div>
