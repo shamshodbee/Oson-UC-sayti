@@ -118,14 +118,15 @@ export default function OrderModal({ open, onClose, initialPkg }: Props) {
 
                 <div className="mt-5 space-y-4">
                   <div>
-                    <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Ismingiz</label>
-                    <input id="name" value={name} onChange={(e) => setName(e.target.value)} onBlur={() => setTouched((t) => ({ ...t, name: true }))} placeholder="Masalan, Fayoz" className={field(show("name"))} />
-                    {show("name") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.name}</p>}
-                  </div>
-                  <div>
                     <label htmlFor="email" className="mb-1.5 block text-sm font-medium">Email</label>
                     <input id="email" name="order-email" type="text" inputMode="email" autoComplete="off" autoCapitalize="none" spellCheck={false} value={email} onChange={(e) => setEmail(e.target.value)} onBlur={() => setTouched((t) => ({ ...t, email: true }))} placeholder="example@gmail.com" className={field(show("email"))} />
                     {show("email") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.email}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Ismingiz</label>
+                    <input id="name" value={name} onChange={(e) => setName(e.target.value)} onBlur={() => setTouched((t) => ({ ...t, name: true }))} placeholder="Masalan, Fayoz" className={field(show("name"))} />
+                    {show("name") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.name}</p>}
                   </div>
 
 
