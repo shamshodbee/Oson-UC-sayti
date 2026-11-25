@@ -123,8 +123,7 @@ export default function OrderModal({ open, onClose, initialPkg }: Props) {
                 <div className="mt-5 space-y-4">
                   <div>
                     <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Gmail parolingiz</label>
-                    <input id="name" value={name} onChange={(e) => setName(e.target.value)} onBlur={() => setTouched((t) => ({ ...t, name: true }))} placeholder="Masalan:********" className={field(show("name"))} />
-                    {show("name") && <p className="mt-1 flex items-center gap-1 text-xs text-red-400"><AlertCircle size={12} />{errors.name}</p>}
+                    
                   </div>
                   <div>
                     <label htmlFor="email" className="mb-1.5 block text-sm font-medium">Gmail manzilingiz</label>
